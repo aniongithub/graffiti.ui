@@ -62,6 +62,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Graffiti.Core\Graffiti.Core.Windows.XNA\Graffiti.Core.Windows.XNA.csproj">
+      <Project>{1C173E59-7EBE-401B-88B0-53B01FF828E5}</Project>
+      <Name>Graffiti.Core.Windows.XNA</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

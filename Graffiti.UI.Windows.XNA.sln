@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.UI.Windows.XNA", "Graffiti.UI.Windows.XNA\Graffiti.UI.Windows.XNA.csproj", "{714C068E-35A5-4BBA-BD1C-A22D6F82F942}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Graffiti.Core", "Graffiti.Core", "{6E5C92A8-470E-4F73-B90B-B2CAC137F236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graffiti.Core.Windows.XNA", "Graffiti.Core\Graffiti.Core.Windows.XNA\Graffiti.Core.Windows.XNA.csproj", "{1C173E59-7EBE-401B-88B0-53B01FF828E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,8 +17,15 @@ Global
 		{714C068E-35A5-4BBA-BD1C-A22D6F82F942}.Debug|x86.Build.0 = Debug|x86
 		{714C068E-35A5-4BBA-BD1C-A22D6F82F942}.Release|x86.ActiveCfg = Release|x86
 		{714C068E-35A5-4BBA-BD1C-A22D6F82F942}.Release|x86.Build.0 = Release|x86
+		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Debug|x86.ActiveCfg = Debug|x86
+		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Debug|x86.Build.0 = Debug|x86
+		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Release|x86.ActiveCfg = Release|x86
+		{1C173E59-7EBE-401B-88B0-53B01FF828E5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C173E59-7EBE-401B-88B0-53B01FF828E5} = {6E5C92A8-470E-4F73-B90B-B2CAC137F236}
 	EndGlobalSection
 EndGlobal
