@@ -20,12 +20,7 @@ using System.Collections.Generic;
 
 namespace Graffiti.UI
 {
-    public enum Trigger
-    { 
-    }
-
-    public abstract class UIElement: Drawable
+    public sealed class Setters: IList<Action<UIElement>>
     {
-        public Dictionary<Trigger>
     }
 }

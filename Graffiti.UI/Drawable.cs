@@ -16,16 +16,33 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
+using Graffiti.Core;
+using Graffiti.Core.Animation;
+using Graffiti.Core.Brushes;
+using Graffiti.Core.Rendering;
+using Microsoft.Xna.Framework;
 
 namespace Graffiti.UI
 {
-    public enum Trigger
-    { 
-    }
-
-    public abstract class UIElement: Drawable
+    public abstract class Drawable: IRenderable
     {
-        public Dictionary<Trigger>
+        public Action<Drawable, IRenderer, Matrix> Draw { get; set; }
+
+        #region IRenderable Members
+
+        public void Render(IRenderer renderer, Matrix parentTransform)
+        {
+            Draw(this, renderer, parentTransform);
+        }
+
+        public IBrush Brush { get; set; }
+
+        #endregion
+
+        #region IPoseable Members
+
+        public IAnimatable<Matrix> Transform { get; set; }
+
+        #endregion
     }
 }
