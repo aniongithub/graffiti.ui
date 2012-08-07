@@ -15,58 +15,61 @@
 // terms of the License.
 #endregion
 
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Graffiti.UI
 {
     public enum Trigger
     { 
+        None,
+        Selected,
+        Deselected,
+        Activated,
+        Disabled,
+        Enabled,
+        SwipeLeft,
+        SwipeRight,
+        SwipeUp,
+        SwipeDown,
+        PinchIn,
+        PinchOut
     }
 
     public sealed class Triggers: IDictionary<Trigger, Setters>
     {
+        private readonly Dictionary<Trigger, Setters> _dictionary = new Dictionary<Trigger, Setters>();
+        
         #region IDictionary<Trigger,Setters> Members
 
         public void Add(Trigger key, Setters value)
         {
-            throw new System.NotImplementedException();
+            _dictionary.Add(key, value);
         }
-
         public bool ContainsKey(Trigger key)
         {
-            throw new System.NotImplementedException();
+            return _dictionary.ContainsKey(key);
         }
-
         public ICollection<Trigger> Keys
         {
-            get { throw new System.NotImplementedException(); }
+            get { return _dictionary.Keys; }
         }
-
         public bool Remove(Trigger key)
         {
-            throw new System.NotImplementedException();
+            return _dictionary.Remove(key);
         }
-
         public bool TryGetValue(Trigger key, out Setters value)
         {
-            throw new System.NotImplementedException();
+            return _dictionary.TryGetValue(key, out value);
         }
-
         public ICollection<Setters> Values
         {
-            get { throw new System.NotImplementedException(); }
+            get { return _dictionary.Values; }
         }
-
         public Setters this[Trigger key]
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-                throw new System.NotImplementedException();
-            }
+            get { return _dictionary[key]; }
+            set { _dictionary[key] = value; }
         }
 
         #endregion
@@ -75,37 +78,31 @@ namespace Graffiti.UI
 
         public void Add(KeyValuePair<Trigger, Setters> item)
         {
-            throw new System.NotImplementedException();
+            (_dictionary as ICollection<KeyValuePair<Trigger,Setters>>).Add(item);
         }
-
         public void Clear()
         {
-            throw new System.NotImplementedException();
+            _dictionary.Clear();
         }
-
         public bool Contains(KeyValuePair<Trigger, Setters> item)
         {
-            throw new System.NotImplementedException();
+            return (_dictionary as ICollection<KeyValuePair<Trigger, Setters>>).Contains(item);
         }
-
         public void CopyTo(KeyValuePair<Trigger, Setters>[] array, int arrayIndex)
         {
-            throw new System.NotImplementedException();
+            (_dictionary as ICollection<KeyValuePair<Trigger, Setters>>).CopyTo(array, arrayIndex);
         }
-
         public int Count
         {
-            get { throw new System.NotImplementedException(); }
+            get { return _dictionary.Count; }
         }
-
         public bool IsReadOnly
         {
-            get { throw new System.NotImplementedException(); }
+            get { return false; }
         }
-
         public bool Remove(KeyValuePair<Trigger, Setters> item)
         {
-            throw new System.NotImplementedException();
+            return (_dictionary as ICollection<KeyValuePair<Trigger, Setters>>).Remove(item);
         }
 
         #endregion
@@ -114,16 +111,16 @@ namespace Graffiti.UI
 
         public IEnumerator<KeyValuePair<Trigger, Setters>> GetEnumerator()
         {
-            throw new System.NotImplementedException();
+            return _dictionary.GetEnumerator();
         }
 
         #endregion
 
         #region IEnumerable Members
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new System.NotImplementedException();
+            return GetEnumerator();
         }
 
         #endregion

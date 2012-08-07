@@ -16,16 +16,73 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
+using Graffiti.Core.Rendering;
+using Microsoft.Xna.Framework;
 
 namespace Graffiti.UI
 {
-    public enum Trigger
-    { 
+    public abstract class UIElement: Drawable, IResourceTreeNode, IUIElementNode
+    {
+        protected UIElement()
+        {
+            Enabled = true;
+        }
+
+        public Style Style { get; set; }
+        public bool Enabled { get; set; }
+
+        public void Trigger(Trigger trigger)
+        {
+            throw new NotImplementedException();
+        }
+
+        #region IResourceTreeNode Members
+
+        IResourceTreeNode IResourceTreeNode.Parent { get; set; }
+
+        private ResourceDictionary _resources;
+        ResourceDictionary IResourceTreeNode.Resources
+        {
+            get
+            {
+                return _resources;
+            }
+            set
+            {
+                _resources = value;
+                if (_resources != null)
+                    _resources.Owner = this;
+            }
+        }
+
+        #endregion
+
+        #region IUIElementNode Members
+
+        IUIElementNode IUIElementNode.Parent { get; set; }
+
+        public string Name { get; set; }
+
+        #endregion
+
+        public Margin Margin { get; set; }
+        public Padding Padding { get; set; }
+
+        public abstract Rectangle Measure();
+        public abstract void Arrange();
     }
 
-    public abstract class UIElement: Drawable
+    public static class UIElementExtensions
     {
-        public Dictionary<Trigger>
+        public static UIElement Find(this UIElement current, string name)
+        {
+            if (current == null)
+                return null;
+
+            if (current.Name == name)
+                return current;
+
+            return Find((UIElement)(current as IUIElementNode).Parent, name);
+        }
     }
 }

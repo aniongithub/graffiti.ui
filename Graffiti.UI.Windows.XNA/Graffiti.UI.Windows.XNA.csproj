@@ -54,6 +54,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Graffiti.UI\Controls\ContentControl.cs">
+      <Link>Controls\ContentControl.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Controls\HeaderedContentControl.cs">
+      <Link>Controls\HeaderedContentControl.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Controls\ItemsControl.cs">
+      <Link>Controls\ItemsControl.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Controls\Rect.cs">
+      <Link>Controls\Rect.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Controls\Screen.cs">
+      <Link>Controls\Screen.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Drawable.cs">
+      <Link>Drawable.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\IResourceNode.cs">
+      <Link>IResourceNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\IUIElementNode.cs">
+      <Link>IUIElementNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Margin.cs">
+      <Link>Margin.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Padding.cs">
+      <Link>Padding.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\ResourceDictionary.cs">
+      <Link>ResourceDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Setters.cs">
+      <Link>Setters.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Style.cs">
+      <Link>Style.cs</Link>
+    </Compile>
+    <Compile Include="..\Graffiti.UI\Triggers.cs">
+      <Link>Triggers.cs</Link>
+    </Compile>
     <Compile Include="..\Graffiti.UI\UIElement.cs">
       <Link>UIElement.cs</Link>
     </Compile>

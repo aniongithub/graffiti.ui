@@ -16,11 +16,83 @@
 #endregion
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Graffiti.UI
 {
     public sealed class Setters: IList<Action<UIElement>>
     {
+        private readonly List<Action<UIElement>> _list = new List<Action<UIElement>>();
+
+        #region IList<Action<UIElement>> Members
+
+        public int IndexOf(Action<UIElement> item)
+        {
+            return _list.IndexOf(item);
+        }
+        public void Insert(int index, Action<UIElement> item)
+        {
+            _list.Insert(index, item);
+        }
+        public void Add(Action<UIElement> item)
+        {
+            _list.Add(item);
+        }
+        public void Clear()
+        {
+            _list.Clear();
+        }
+        public bool Contains(Action<UIElement> item)
+        {
+            return _list.Contains(item);
+        }
+        public void CopyTo(Action<UIElement>[] array, int arrayIndex)
+        {
+            _list.CopyTo(array, arrayIndex);
+        }
+        public int Count
+        {
+            get { return _list.Count; }
+        }
+        public bool IsReadOnly
+        {
+            get { return false; }
+        }
+        
+        public bool Remove(Action<UIElement> item)
+        {
+            return _list.Remove(item);
+        }
+        public void RemoveAt(int index)
+        {
+            _list.RemoveAt(index);
+        }
+
+        public Action<UIElement> this[int index]
+        {
+            get { return _list[index]; }
+            set { _list[index] = value; }
+        }
+
+        #endregion
+
+        #region IEnumerable<Action<UIElement>> Members
+
+        public IEnumerator<Action<UIElement>> GetEnumerator()
+        {
+            return _list.GetEnumerator();
+        }
+
+        #endregion
+
+        #region IEnumerable Members
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        #endregion
     }
 }

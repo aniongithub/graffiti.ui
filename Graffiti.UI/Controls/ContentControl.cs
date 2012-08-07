@@ -15,29 +15,21 @@
 // terms of the License.
 #endregion
 
-using System;
-using Graffiti.Core;
-using Graffiti.Core.Animation;
-using Graffiti.Core.Brushes;
-using Graffiti.Core.Rendering;
-using Microsoft.Xna.Framework;
-
-namespace Graffiti.UI
+namespace Graffiti.UI.Controls
 {
-    public abstract class Drawable: IRenderable
+    public abstract class ContentControl: UIElement
     {
-        #region IRenderable Members
+        private UIElement _content;
 
-        public abstract void Render(IRenderer renderer, Matrix parentTransform);
-
-        public IBrush Brush { get; set; }
-
-        #endregion
-
-        #region IPoseable Members
-
-        public IAnimatable<Matrix> Transform { get; set; }
-
-        #endregion
+        public UIElement Content
+        {
+            get { return _content; }
+            set 
+            { 
+                _content = value;
+                (_content as IResourceTreeNode).Parent = this;
+                (_content as IUIElementNode).Parent = this;
+            }
+        }
     }
 }
