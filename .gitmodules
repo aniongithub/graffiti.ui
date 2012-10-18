@@ -1,3 +1,3 @@
 [submodule "Graffiti.Core"]
 	path = Graffiti.Core
-	url = https://github.com/ananthonline/graffiti.git
+	url = git@github.com:ananthonline/graffiti.git
